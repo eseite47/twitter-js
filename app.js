@@ -1,6 +1,7 @@
 const express = require('express');
 const volley = require('volleyball');
 const nunjucks = require('nunjucks');
+const tweetBank = require('./tweetBank')
 const app = express();
 
 app.set('view engine', 'html'); // have res.render work with html files
