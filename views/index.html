@@ -11,7 +11,7 @@
       <b>Your Name</b><br>
       100 followers
     </div>
-    <div class="col-md-9">
+    <div id='tweetList' class="col-md-9">
 
       <!-- display tweets here -->
        {% if showForm %}
@@ -36,6 +36,12 @@
           </div>
         </div>
         {% endfor %}
+
+        <div id='addTweet' class='tweetbox'>
+          <p></p>
+        </div>
+
+
 
 
     </div>
