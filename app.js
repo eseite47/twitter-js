@@ -12,20 +12,6 @@ let server = app.listen('3000', function(){
 })
 let io = socket.listen(server);
 
-// io.on('connection', function(client){
-//   console.log('client connected')
-
-//   client.on('join', function(data){
-//     console.log(data);
-//     //client.emit('tweet', 'Hello from server')
-//   })
-
-//   client.on('tweet', function(data){
-//     client.emit('broad', data);
-//     client.broadcast.emit('broad', data);
-//   })
-// });
-
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
 nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates

@@ -86,7 +86,6 @@
       // Express instance, you can connect() without any arguments.
       var socket = io.connect(window.location.origin);
       socket.on('connect', function(){
-        //console.log('connected to server via WebSockets!');
         socket.emit('connected to server via WebSockets!');
 
       });
@@ -96,28 +95,11 @@
         let tweet = data.text;
         let id = data.id;
         console.log('name', name, 'tweet', tweet, 'id', id);
-        let newHTML = "<div class='row tweetbox'><div class='col-sm-1'><img class ='img-responsive' src='https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg'></div><div class='col-sm-11'><h4><a href='/users/" +name+ "'> "+name+"</a></h4><p><a href='#'>" + tweet+ "</a></p></div></div>"//<p><a href=''>{{tweet.id}}</a></p></div></div>";
+        let newHTML = "<div class='row tweetbox'><div class='col-sm-1'><img class ='img-responsive' src='https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg'></div><div class='col-sm-11'><h4><a href='/users/" + name + "'> "+name+"</a></h4><p><a href='#'>" + tweet+ "</a></p></div></div>"
+
         $('#tweetList').append(newHTML)
       })
 
-      // $('form').submit(function(e){
-      //   e.preventDefault();
-      //   var name = $('#name_field').val();
-      //   var content = $('#text_field').val();
-      //   socket.emit('tweet', name);
-      //   socket.emit('tweet', content);
-      //   $('tweetList').append('<div><p>' + name  + '</p><p>' + content + '</p></div>');
-
-      //   //alert(name + " " +content);
-      // })
-      // When 'new_tweet' events are fired, do something with the packaged tweet
-      //     socket.on('newTweet', function (tweet) {
-      //       addTweet(tweet.name, tweet.content);
-      //       console.log(tweet);
-      //       alert('Refreshing... check the console...');
-
-
-      //     });
   </script>
 </body>
 </html>
