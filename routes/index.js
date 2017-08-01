@@ -11,4 +11,24 @@ router.get('/', function (req, res) {
   res.render( 'index', { tweets: tweets } );
 });
 
+router.get( '/users/:name', function(req, res){
+  var user = req.params.name;
+  //let tweets = tweetBank.list();
+  //let tweet = tweets.find(function(usr){ usr.name === user })
+  let tweet = tweetBank.find({'name': user});
+  console.log(tweet)
+  console.log(req.params.name);
+  res.render( 'index', { tweets: tweet } );
+} );
+
+router.get( '/user/:id', function(req, res){
+  var id = parseInt(req.params.id);
+  //let tweets = tweetBank.list();
+  //let tweet = tweets.find(function(usr){ usr.name === user })
+  let tweet = tweetBank.find({'id': id});
+  console.log(tweet)
+  console.log(req.params.name);
+  res.render( 'index', { tweets: tweet } );
+} );
+
 module.exports = router;

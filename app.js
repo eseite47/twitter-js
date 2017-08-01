@@ -14,17 +14,6 @@ app.use(volley);
 app.use('/', routes);
 app.use(express.static('public'))
 
-var locals = {
-    title: 'An Example',
-    people: [
-        { name: 'Gandalf'},
-        { name: 'Frodo' },
-        { name: 'Hermione'}
-    ]
-};
-//var test = nunjucks.render('index.html', locals);
-const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
-
 app.listen('3000', function(){
   console.log('server is running');
 })
