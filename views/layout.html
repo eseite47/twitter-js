@@ -92,8 +92,12 @@
       });
 
       socket.on('tweet', function(data){
-        console.log('Tweet event');
-
+        let name = data.name;
+        let tweet = data.text;
+        let id = data.id;
+        console.log('name', name, 'tweet', tweet, 'id', id);
+        let newHTML = "<div class='row tweetbox'><div class='col-sm-1'><img class ='img-responsive' src='https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg'></div><div class='col-sm-11'><h4><a href='/users/" +name+ "'> "+name+"</a></h4><p><a href='#'>" + tweet+ "</a></p></div></div>"//<p><a href=''>{{tweet.id}}</a></p></div></div>";
+        $('#tweetList').append(newHTML)
       })
 
       // $('form').submit(function(e){
