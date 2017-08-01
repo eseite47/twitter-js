@@ -1,7 +1,9 @@
 const express = require('express');
 const volley = require('volleyball');
 const nunjucks = require('nunjucks');
-const tweetBank = require('./tweetBank')
+const tweetBank = require('./tweetBank');
+const routes = require('./routes');
+
 const app = express();
 
 app.set('view engine', 'html'); // have res.render work with html files
@@ -9,6 +11,8 @@ app.engine('html', nunjucks.render); // when giving html files to res.render, te
 nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper directory for templates
 
 app.use(volley);
+app.use('/', routes);
+app.use(express.static('public'))
 
 var locals = {
     title: 'An Example',
@@ -18,21 +22,8 @@ var locals = {
         { name: 'Hermione'}
     ]
 };
-
 //var test = nunjucks.render('index.html', locals);
-
 const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
-
-app.get("/", function(req, res){
-  //res.send(test);
-  res.render( 'index', {title: 'Hall of Fame', people: people} )
-})
-
-app.get("/locals", function(req, res){
-  //res.send(test);
-  //res.render( 'index', {title: 'Hall of Fame', people: people} )
-  res.render('index', locals);
-})
 
 app.listen('3000', function(){
   console.log('server is running');
